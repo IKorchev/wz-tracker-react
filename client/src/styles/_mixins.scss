@@ -1,0 +1,12 @@
+@mixin colorAndBackground {
+  background-color: $blue;
+  color: black;
+  &:hover {
+    background-color: $lightblue;
+    color: $bg-dark;
+  }
+  &:focus {
+    background-color: $lightblue;
+    color: $bg-dark;
+  }
+}
