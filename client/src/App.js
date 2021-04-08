@@ -3,6 +3,7 @@ import "./styles/main.scss"
 import Header from "./components/header"
 import Form from "./components/form"
 import Main from "./components/Main"
+import "bootstrap"
 
 function App() {
   const [data, setData] = useState("")

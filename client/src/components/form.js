@@ -6,10 +6,9 @@ const Form = ({ setData }) => {
 
   const handleFormSubmit = async (e) => {
     const body = {
-      name: name,
-      platform: platform,
+      name: name.toLowerCase(),
+      platform: platform.toLowerCase(),
     }
-    console.log(body)
     e.preventDefault()
     console.log("it works")
     const response = await fetch("/search", {
@@ -27,7 +26,7 @@ const Form = ({ setData }) => {
 
   return (
     <div className='container'>
-      <h3>Look for a player</h3>
+      <h3 className='text-center'>Look for a player</h3>
       <form className='form' onSubmit={handleFormSubmit} action='/search' method='POST'>
         <input
           type='text'
@@ -46,11 +45,12 @@ const Form = ({ setData }) => {
           <option value='battle'>Battle.net</option>
           <option value='psn'>Playstation</option>
           <option value='xbl'>Xbox Live</option>
+          <option value='steam'>Steam</option>
           <option value='acti'>Activision</option>
           <option value='uno'>Numerical Identifier</option>
         </select>
         <button type='submit' className='button'>
-          Submit
+          Search
         </button>
       </form>
     </div>

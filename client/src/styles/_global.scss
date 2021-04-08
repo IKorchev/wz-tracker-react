@@ -10,13 +10,12 @@ h3 {
   margin: 1rem 0;
   color: $light;
 }
-.container {
+.container-column {
   margin: 3rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
 
 .header {
@@ -27,5 +26,4 @@ h3 {
   text-align: center;
   font-size: 3rem;
   border: 0.5px solid $lightblue;
-  box-shadow: 0px 1px 10px $lightblue, 0px 1px 10px $lightblue, 0px 1px 10px $lightblue;
 }
