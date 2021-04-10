@@ -1,9 +1,9 @@
 import React from "react"
 import Summary from "./SummaryComponent"
-import { Container, Button } from "react-bootstrap"
+import { Container, Button, Spinner } from "react-bootstrap"
 import AccordionComponent from "./AccordionComponent"
 
-const Main = ({ data }) => {
+const Main = ({ data, loading }) => {
   if (!data) return <></>
   const codData = data.callOfDutyData.lifetime.all.properties
   const dbData = data.databaseData
@@ -33,24 +33,31 @@ const Main = ({ data }) => {
     ${diff.gamesPlayed} games and they won
     ${diff.wins} games since their last stats update.`
 
-  return (
-    <div className='container-column'>
-      <div id='main'>
-        <h1 className='h2 text-center text-secondary text-uppercase'>
-          {data.callOfDutyData.username}
-        </h1>
-        <h2 className='text-center text-info'>Level: {data.callOfDutyData.level}</h2>
-        <Container id='summary'>
-          <h5 className='text-center'>Summary</h5>
-          <Summary string={string} />
-        </Container>
-        <AccordionComponent codData={codData} dbData={dbData} />
+  if (loading) {
+    return (
+      <Container className='d-flex justify-content-center mt-5'>
+        <Spinner animation='border' variant='primary' role='status' />
+      </Container>
+    )
+  } else {
+    return (
+      <div className='container-column'>
+        <div id='main'>
+          <h1 className='h2 text-center text-secondary text-uppercase'>
+            {data.callOfDutyData.username}
+          </h1>
+          <h2 className='text-center text-info'>Level: {data.callOfDutyData.level}</h2>
+          <Container id='summary'>
+            <h5 className='text-center'>Summary</h5>
+            <Summary string={string} />
+          </Container>
+          <AccordionComponent codData={codData} dbData={dbData} />
+        </div>
+        <Button variant='info' className='my-5' onClick={updateStats}>
+          Update stats
+        </Button>
       </div>
-      <Button variant='info' className='my-5' onClick={updateStats}>
-        Update stats
-      </Button>
-    </div>
-  )
+    )
+  }
 }
-
 export default Main

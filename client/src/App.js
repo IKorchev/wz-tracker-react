@@ -7,12 +7,13 @@ import "bootstrap"
 
 function App() {
   const [data, setData] = useState("")
+  const [loading, setLoading] = useState(true)
 
   return (
     <div className='App'>
       <Header />
-      <Form setData={setData} />
-      <Main data={data} />
+      <Form setData={setData} setLoading={setLoading} />
+      <Main data={data} loading={loading} />
     </div>
   )
 }

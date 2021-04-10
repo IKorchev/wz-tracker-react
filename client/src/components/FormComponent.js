@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const Form = ({ setData }) => {
+const Form = ({ setData, setLoading }) => {
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
 
@@ -10,18 +10,22 @@ const Form = ({ setData }) => {
       platform: platform.toLowerCase(),
     }
     e.preventDefault()
-    console.log("it works")
-    const response = await fetch("/search", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    })
-    const json_response = await response.json()
-    setData(json_response)
-
-    e.target.reset()
+    setLoading(true)
+    try {
+      const response = await fetch("/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      })
+      const json_response = await response.json()
+      setData(json_response)
+      setLoading(false)
+      e.target.reset()
+    } catch (err) {
+      alert(err.message)
+    }
   }
 
   return (
