@@ -2,6 +2,7 @@ require("dotenv").config()
 const { urlencoded } = require("body-parser")
 const express = require("express")
 const { getData } = require("./module_exports/cod")
+const { getLeaderboards } = require("./module_exports/cod")
 const app = express()
 const PORT = 5500
 const API = require("call-of-duty-api")()
@@ -10,20 +11,28 @@ const PASSWORD = process.env.PASSWORD
 const db = require("./module_exports/mongo")
 const Player = require("./module_exports/Player")
 const User = require("./module_exports/schema")
+const updateUser = require("./module_exports/updateUser")
 
+// Log-in to be able to use all COD API features
 ;(async () => {
   try {
     await API.login(EMAIL, PASSWORD)
     console.log(API.isLoggedIn())
+    await getLeaderboards()
   } catch (err) {
     throw err
   }
 })()
-
+// MIDDLEWARE
 app.use(express.json())
 app.use(urlencoded({ extended: false }))
+// HTTP
+
+const playerInfo = {}
 
 app.post("/search", async (req, res) => {
+  playerInfo.name = req.body.name
+  playerInfo.platform = req.body.platform
   console.log(req.body)
   try {
     const data = await getData(req.body.name, req.body.platform)
@@ -38,8 +47,18 @@ app.post("/search", async (req, res) => {
       }
     })
   } catch (err) {
-    res.send(undefined)
+    res.sendStatus(500)
     throw err
+  }
+})
+
+app.post("/update", async (req, res) => {
+  try {
+    await updateUser(playerInfo.name, playerInfo.platform)
+    res.sendStatus(200)
+  } catch (err) {
+    console.log(err)
+    res.sendStatus(500)
   }
 })
 

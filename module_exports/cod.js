@@ -23,4 +23,9 @@ const getData = async (user, platform) => {
   }
   return data
 }
-module.exports = { codLogin, getData }
+
+const getLeaderboards = async () => {
+ 
+}
+
+module.exports = { codLogin, getData, getLeaderboards }

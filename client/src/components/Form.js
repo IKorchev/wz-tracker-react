@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const Form = ({ setData, setLoading }) => {
+const Form = ({ setData, setLoading, setAlert }) => {
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
 
@@ -11,27 +11,33 @@ const Form = ({ setData, setLoading }) => {
     }
     e.preventDefault()
     setLoading(true)
-    try {
-      const response = await fetch("/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      })
+    const response = await fetch("/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    })
+
+    if (response.status === 200) {
       const json_response = await response.json()
-      setData(json_response)
       setLoading(false)
-      e.target.reset()
-    } catch (err) {
-      alert(err.message)
+      setData(json_response)
     }
+    if (response.status !== 200) {
+      console.log("error")
+      setData(undefined)
+      setLoading(false)
+    }
+    setPlatform("battle")
+    setName("")
+    return e.target.reset()
   }
 
   return (
     <div className='container'>
       <h3 className='text-center'>Look for a player</h3>
-      <form className='form' onSubmit={handleFormSubmit} action='/search' method='POST'>
+      <form className='form' onSubmit={handleFormSubmit}>
         <input
           type='text'
           onChange={(e) => {
@@ -42,8 +48,9 @@ const Form = ({ setData, setLoading }) => {
           placeholder='Name (include #id)'
         />
         <select
+          value={platform}
           onChange={(e) => {
-            setPlatform(e.currentTarget.value)
+            setPlatform(e.target.value)
             console.log(platform)
           }}>
           <option value='battle'>Battle.net</option>
