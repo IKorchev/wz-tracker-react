@@ -17,7 +17,7 @@ const Accordions = ({ codData, dbData }) => {
     <Accordion className='bg-dark'>
       <Card className='bg-info text-dark'>
         <Accordion.Toggle as={Card.Header} id='toggler' eventKey='0'>
-          Your current stats
+          Current stats
         </Accordion.Toggle>
         <Accordion.Collapse eventKey='0'>
           <Card.Body className='d-flex flex-column justify-content-center align-items-center'>

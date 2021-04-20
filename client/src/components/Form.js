@@ -61,7 +61,7 @@ const Form = ({ setData, setLoading, setAlert }) => {
           <option value='uno'>Numerical Identifier</option>
         </select>
         <button type='submit' className='button'>
-          Search
+          <b>Search</b>
         </button>
       </form>
     </div>

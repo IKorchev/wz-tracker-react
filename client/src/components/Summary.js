@@ -18,18 +18,26 @@ const Summary = ({ username, codData, dbData }) => {
     }
 
     const string = `
-  ${diff.name} has ${diff.kills} more kills,
-  ${diff.assists} more assists, and died
-  ${diff.deaths} times, Their KD Ratio was 
-  ${diff.kdRatio.previous}, now it is 
-  ${diff.kdRatio.current}. They played 
+  ${diff.name} played 
   ${diff.gamesPlayed} games and they won
-  ${diff.wins} games since their last stats update.`
+  ${diff.wins} games since their last stats update. They have
+  ${diff.kills} more kills,
+  ${diff.assists} more assists, and died
+  ${diff.deaths} times, Their KD Ratio currently is 
+  ${diff.kdRatio.current}.`
 
     return (
       <Container className='px-5 py-3'>
         <h5 className='text-center'>Summary</h5>
         <p>{string}</p>
+      </Container>
+    )
+  }
+  if (dbData === undefined) {
+    return (
+      <Container className='px-5 py-3'>
+        <h5 className='text-center'>Summary</h5>
+        <p>Not enough data to form a summary.</p>
       </Container>
     )
   }
