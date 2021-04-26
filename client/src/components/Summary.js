@@ -18,13 +18,13 @@ const Summary = ({ username, codData, dbData }) => {
     }
 
     const string = `
-  ${diff.name} played 
-  ${diff.gamesPlayed} games and they won
-  ${diff.wins} games since their last stats update. They have
-  ${diff.kills} more kills,
-  ${diff.assists} more assists, and died
-  ${diff.deaths} times, Their KD Ratio currently is 
-  ${diff.kdRatio.current}.`
+      ${diff.name} played 
+      ${diff.gamesPlayed} games and they won
+      ${diff.wins} games since their last stats update. They have
+      ${diff.kills} more kills,
+      ${diff.assists} more assists, and died
+      ${diff.deaths} times, Their KD Ratio currently is 
+      ${diff.kdRatio.current}.`
 
     return (
       <Container className='px-5 py-3'>

@@ -23,9 +23,10 @@ const Content = ({ data, loading }) => {
   if (data) {
     const codData = data.callOfDutyData.lifetime.all.properties
     const dbData = data.databaseData
+    const cwData = data.coldWarData.lifetime.all.properties
     const level = data.callOfDutyData.level
     const username = data.callOfDutyData.username
-
+    console.log(data)
     const updateUser = async () => {
       const data = await fetch("/update", { method: "POST" })
       console.log(data)
@@ -36,7 +37,7 @@ const Content = ({ data, loading }) => {
           {/* prettier-ignore */}
           <PlayerInfo level={level} username={username}/>
           <Summary username={username} codData={codData} dbData={dbData} />
-          <Accordions codData={codData} dbData={dbData} />
+          <Accordions codData={codData} dbData={dbData} cwData={cwData} />
         </Container>
         <Button variant='info' className='my-5' onClick={updateUser}>
           Update stats

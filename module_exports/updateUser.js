@@ -1,11 +1,11 @@
 const { getData } = require("./cod")
-const Player = require("./Player")
-const User = require("./schema")
+const {User, Player} = require("./schema")
 
 const updateUser = async (name, platform) => {
-  const data = await getData(name, platform)
-  if (data != undefined) {
-    const player = new Player(data)
+  const {warzone, coldwar} = await getData(name, platform)
+  if (warzone != undefined) {
+    
+    const player = new Player(warzone, coldwar)
     //prettier-ignore
     return User.updateOne(
       { username: player.username },  player, { upsert: true }, (err, res) => {

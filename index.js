@@ -8,9 +8,7 @@ const PORT = 5500
 const API = require("call-of-duty-api")()
 const EMAIL = process.env.EMAIL
 const PASSWORD = process.env.PASSWORD
-const db = require("./module_exports/mongo")
-const Player = require("./module_exports/Player")
-const User = require("./module_exports/schema")
+const { User, Player } = require("./module_exports/schema")
 const updateUser = require("./module_exports/updateUser")
 
 // Log-in to be able to use all COD API features
@@ -35,17 +33,17 @@ app.post("/search", async (req, res) => {
   playerInfo.platform = req.body.platform
   console.log(req.body)
   try {
-    const data = await getData(req.body.name, req.body.platform)
-    const player = new Player(data)
+    const { warzone, coldwar } = await getData(req.body.name, req.body.platform)
+    const player = new Player(warzone, coldwar)
     // check if player is in the database
-    User.findOne({ username: player.username }, (err, db_data) => {
-      if (db_data) {
-        res.json({ callOfDutyData: data, databaseData: db_data }) // send both data from db and cod api
-      } else {
-        res.json({ callOfDutyData: data, databaseData: null }) // send only cod-api if there is no data in db
-        updateUser(req.body.name, req.body.platform) // add data to db
-      }
-    })
+    // User.findOne({ username: player.username }, (err, db_data) => {
+    //   if (db_data) {
+    //     res.json({ callOfDutyData: wz_data, databaseData: db_data, coldWarData: cw_data }) // send both data from db and cod api
+    //   } else {
+    //     res.json({ callOfDutyData: wz_data, databaseData: null, coldWarData: cw_data }) // send only cod-api if there is no data in db
+    //     updateUser(req.body.name, req.body.platform) // add data to db
+    //   }
+    // })
   } catch (err) {
     res.sendStatus(500)
     throw err

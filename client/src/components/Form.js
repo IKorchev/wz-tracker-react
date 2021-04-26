@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-const Form = ({ setData, setLoading, setAlert }) => {
+const Form = ({ setData, setLoading }) => {
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
 
@@ -23,6 +23,7 @@ const Form = ({ setData, setLoading, setAlert }) => {
       const json_response = await response.json()
       setLoading(false)
       setData(json_response)
+      
     }
     if (response.status !== 200) {
       console.log("error")

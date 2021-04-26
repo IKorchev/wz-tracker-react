@@ -6,26 +6,27 @@ const codLogin = async () => {
   try {
     console.log(EMAIL, PASSWORD)
     await API.login(EMAIL, PASSWORD)
-    let data = await API.isLoggedIn()
-    console.log(`User logged in - ${data}`)
+    let logged = await API.isLoggedIn()
+    console.log(`User logged in - ${logged}`)
   } catch (err) {
     console.log(err)
   }
 }
 
 const getData = async (user, platform) => {
-  let data
   try {
-    data = await API.MWwz(user, platform)
-    // console.log(data)
+    warzone = await API.MWwz(user, platform)
+    coldwar = await API.CWmp(user, platform)
+
   } catch (error) {
     console.error(error)
   }
-  return data
+  return {
+    warzone,
+    coldwar,
+  }
 }
 
-const getLeaderboards = async () => {
- 
-}
+const getLeaderboards = async () => {}
 
 module.exports = { codLogin, getData, getLeaderboards }

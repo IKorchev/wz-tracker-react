@@ -2,24 +2,31 @@
   color: white;
   width: 50%;
   height: auto;
+
   @media (max-width: 992px) {
-    width: 90%;
+    width: 99%;
   }
 }
 
-#card-body {
+.card-body {
   color: black;
+  h5 {
+    border-bottom: 1px solid black !important;
+  }
 }
 #toggler {
   cursor: pointer;
   color: $lightblue;
   padding: 1rem;
-  font-size: 1.2rem;
   background: darken($bg-dark, 5);
   &:hover {
     background-color: lighten($bg-dark, 2);
   }
+  @media (max-width: 992) {
+    font-size: 0.8rem !important;
+  }
 }
+
 #alert-container {
   @media (max-width: 1400px) {
     width: 80% !important;
