@@ -15,16 +15,12 @@ const codLogin = async () => {
 
 const getData = async (user, platform) => {
   try {
-    warzone = await API.MWwz(user, platform)
-    coldwar = await API.CWmp(user, platform)
-
+    warzoneData = await API.MWwz(user, platform)
+    console.log(warzoneData.lifetime.mode.br)
   } catch (error) {
-    console.error(error)
+    throw error
   }
-  return {
-    warzone,
-    coldwar,
-  }
+  return warzoneData
 }
 
 const getLeaderboards = async () => {}
