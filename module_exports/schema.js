@@ -5,6 +5,7 @@ const userData = new Schema(
   {
     username: { type: String },
     battleRoyale: {
+      title: { type: String },
       wins: { type: Number },
       kills: { type: Number },
       deaths: { type: Number },
@@ -14,6 +15,7 @@ const userData = new Schema(
       timePlayed: { type: Number },
     },
     plunder: {
+      title: { type: String },
       wins: { type: Number },
       kills: { type: Number },
       deaths: { type: Number },
@@ -33,6 +35,7 @@ class Player {
 
     this.username = warzone.username
     this.battleRoyale = {
+      title: "Battle Royale",
       wins: br.wins || 0,
       kills: br.kills,
       deaths: br.deaths,
@@ -42,6 +45,7 @@ class Player {
       timePlayed: br.timePlayed / 3600,
     }
     this.plunder = {
+      title: "Plunder",
       wins: pl.wins || 0,
       kills: pl.kills,
       deaths: pl.deaths,

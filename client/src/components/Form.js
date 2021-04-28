@@ -23,7 +23,6 @@ const Form = ({ setData, setLoading }) => {
       const json_response = await response.json()
       setLoading(false)
       setData(json_response)
-      
     }
     if (response.status !== 200) {
       console.log("error")
@@ -43,7 +42,6 @@ const Form = ({ setData, setLoading }) => {
           type='text'
           onChange={(e) => {
             setName(e.currentTarget.value)
-            console.log(name)
           }}
           className='search'
           placeholder='Name (include #id)'

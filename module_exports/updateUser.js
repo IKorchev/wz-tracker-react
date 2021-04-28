@@ -8,11 +8,7 @@ const updateUser = async (name, platform) => {
     //prettier-ignore
     return User.updateOne(
       { username: player.username },  player, { upsert: true }, (err, res) => {
-        if (err) {
-          console.log(err)
-        } else {
-          console.log(res)
-        }
+       err ? console.log(err) : console.log('Player updated')
       }
     )
   }

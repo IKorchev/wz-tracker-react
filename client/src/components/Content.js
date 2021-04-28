@@ -1,5 +1,4 @@
 import React from "react"
-import Summary from "./Summary"
 import AlertComponent from "./Alert"
 import Accordions from "./Accordions"
 import PlayerInfo from "./PlayerInfo"
@@ -21,18 +20,16 @@ const Content = ({ data, loading }) => {
 
   // when the data is received
   if (data) {
-    console.log(data)
     const updateUser = async () => {
-      const data = await fetch("/update", { method: "POST" })
-      console.log(data)
+      const updated_data = await fetch("/update", { method: "PUT" })
+      console.log(updated_data)
     }
     return (
       <Container className='container-column'>
         <Container id='main'>
           {/* prettier-ignore */}
-          <PlayerInfo/>
-          <Summary />
-          <Accordions />
+          <PlayerInfo name={data.player.username}/>
+          <Accordions playerData={data.player} />
         </Container>
         <Button variant='info' className='my-5' onClick={updateUser}>
           Update stats

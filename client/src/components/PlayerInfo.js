@@ -1,10 +1,9 @@
 import React from "react"
 
-const PlayerInfo = ({ username, level }) => {
+const PlayerInfo = ({ name }) => {
   return (
     <>
-      <h1 className='h2 text-center text-secondary text-uppercase'>{username}</h1>
-      <h2 className='text-center text-info'>Level: {level}</h2>
+      <h1 className='h2 my-4 text-center text-secondary text-uppercase'>{name}</h1>
     </>
   )
 }
