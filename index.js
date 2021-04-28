@@ -28,23 +28,26 @@ app.post("/search", async (req, res) => {
   playerInfo.name = req.body.name
   playerInfo.platform = req.body.platform
   console.log(req.body)
-  let player
+  let player_db
+  let player_cod
   try {
     const warzoneData = await getData(req.body.name, req.body.platform)
-    player = new Player(warzoneData)
-    console.log(player)
+    player_cod = new Player(warzoneData)
     // check if player is in the database
-    User.findOne({ username: player.username }, (err, db_player) => {
-      db_player ? (player = new Player(db_player)) : false
+    User.findOne({ username: player_cod.username }, (err, db_data) => {
+      if (!db_data) {
+        res.json([player_cod, player_cod])
+      }
+      player_db = db_data
+      res.json([player_db, player_cod])
     })
-    res.json({ player })
   } catch (err) {
     res.sendStatus(500)
-    throw err
+    console.log("there was an error")
   }
 })
 
-app.put("/update", async (req, res) => {
+app.post("/update", async (req, res) => {
   try {
     await updateUser(playerInfo.name, playerInfo.platform)
     res.sendStatus(200)

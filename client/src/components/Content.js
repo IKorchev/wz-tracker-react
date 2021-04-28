@@ -21,15 +21,16 @@ const Content = ({ data, loading }) => {
   // when the data is received
   if (data) {
     const updateUser = async () => {
-      const updated_data = await fetch("/update", { method: "PUT" })
+      const updated_data = await fetch("/update", { method: "POST" })
       console.log(updated_data)
     }
+    console.log(data)
     return (
       <Container className='container-column'>
         <Container id='main'>
           {/* prettier-ignore */}
-          <PlayerInfo name={data.player.username}/>
-          <Accordions playerData={data.player} />
+          <PlayerInfo />
+          <Accordions data={data} />
         </Container>
         <Button variant='info' className='my-5' onClick={updateUser}>
           Update stats
