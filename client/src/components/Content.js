@@ -2,7 +2,7 @@ import React from "react"
 import AlertComponent from "./Alert"
 import Accordions from "./Accordions"
 import PlayerInfo from "./PlayerInfo"
-import { Container, Button, Spinner } from "react-bootstrap"
+import { Container, Spinner } from "react-bootstrap"
 
 const Content = ({ data, loading }) => {
   // while searching for a user
@@ -30,11 +30,8 @@ const Content = ({ data, loading }) => {
         <Container id='main'>
           {/* prettier-ignore */}
           <PlayerInfo />
-          <Accordions data={data} />
+          <Accordions data={data} updateUser={updateUser} />
         </Container>
-        <Button variant='info' className='my-5' onClick={updateUser}>
-          Update stats
-        </Button>
       </Container>
     )
   }
