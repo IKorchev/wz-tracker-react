@@ -25,36 +25,39 @@ app.use(urlencoded({ extended: false }))
 
 // ROUTES
 app.post("/search", async (req, res) => {
-  playerInfo.name = req.body.name
-  playerInfo.platform = req.body.platform
-  console.log(req.body)
-  let player_db
-  let player_cod
   try {
+    playerInfo.name = req.body.name
+    playerInfo.platform = req.body.platform
+    console.log(req.body)
     const warzoneData = await getData(req.body.name, req.body.platform)
-    player_cod = new Player(warzoneData)
+    const player_cod = new Player(warzoneData)
     // check if player is in the database
     User.findOne({ username: player_cod.username }, (err, db_data) => {
+      if (db_data) return res.json([db_data, player_cod])
       if (!db_data) {
-        res.json([player_cod, player_cod])
+        updateUser(playerInfo.name, playerInfo.platform)
+        return res.json([player_cod, player_cod])
       }
-      player_db = db_data
-      res.json([player_db, player_cod])
     })
   } catch (err) {
-    res.sendStatus(500)
-    console.log("there was an error")
+    console.log("Couldnt find player")
+    res.sendStatus(404)
   }
 })
 
 app.post("/update", async (req, res) => {
-  try {
-    await updateUser(playerInfo.name, playerInfo.platform)
-    res.sendStatus(200)
-  } catch (err) {
-    console.log(err)
-    res.sendStatus(500)
-  }
+  const data = await getData(playerInfo.name, playerInfo.platform)
+  const player = new Player(data)
+  User.updateOne({ username: player.username }, player, { upsert: true }, (err, data) => {
+    err ? res.sendStatus(500) : res.sendStatus(200)
+  })
+})
+
+app.delete("/delete", async (req, res) => {
+  User.deleteOne({ username: playerInfo.name }, {}, (err, data) => {
+    if (data.deletedCount === 1) res.sendStatus(202)
+    else res.sendStatus(204)
+  })
 })
 
 app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`))

@@ -1,6 +1,6 @@
 #main {
   color: white;
-  width: calc(50% - 18px);
+  width: 80%;
   height: auto;
 
   @media (max-width: 992px) {
@@ -16,11 +16,14 @@
 }
 #toggler {
   cursor: pointer;
-  color: $lightblue;
+  color: $info;
   padding: 1rem;
-  background: darken($bg-dark, 5);
-  &:hover {
-    background-color: lighten($bg-dark, 2);
+  background: $bg-dark;
+  border: 1px solid $info;
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: lighten($bg-dark, 8);
   }
   @media (max-width: 992) {
     font-size: 0.8rem !important;

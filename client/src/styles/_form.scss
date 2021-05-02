@@ -15,7 +15,6 @@
   font-size: 1.5rem;
   height: 2.5rem;
   outline: none;
-  border: 2px solid $lightblue;
   padding: 1.3rem;
   &:focus {
     border: 2px solid $gold;
@@ -32,7 +31,6 @@ select {
   color: $darkBlue;
   font-size: 1.5rem;
   height: 2.9rem;
-  border: 2px solid $lightblue;
   outline: none;
   &:focus {
     border-color: $gold;
@@ -49,16 +47,15 @@ select {
   font-size: 1.2rem;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
+  border-radius: 0px;
   outline: none;
   border: 1px solid $lightblue;
-  &:focus {
-    border: 1px solid $gold;
-  }
-  @include colorAndBackground;
   @media (max-width: 992px) {
     width: 20%;
   }
   @media (max-width: 660px) {
     width: 95%;
   }
+  @include buttonHoverAndFocus;
 }
+

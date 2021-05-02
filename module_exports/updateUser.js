@@ -1,18 +1,17 @@
 const { getData } = require("./cod")
-const { User, Player } = require("./schema")
+const { Player, User } = require("./schema")
 
 const updateUser = async (name, platform) => {
-  const warzoneData = await getData(name, platform)
-  if (warzoneData != undefined) {
-    const player = new Player(warzoneData)
-    //prettier-ignore
-    return User.updateOne(
-      { username: player.username },  player, { upsert: true }, (err, res) => {
-       err ? console.log(err) : console.log('Player updated')
-      }
-    )
-  }
-  return "no data found"
+  const data = await getData(name, platform)
+  const player = new Player(data)
+  return User.updateOne(
+    { username: player.username },
+    player,
+    { upsert: true },
+    (err, data) => {
+      err ? console.log("user not added") : console.log("user added")
+    }
+  )
 }
 
 module.exports = updateUser

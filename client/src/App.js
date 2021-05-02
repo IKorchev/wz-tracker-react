@@ -8,14 +8,13 @@ import "bootstrap"
 function App() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(null)
-  const [alert, setAlert] = useState(null)
-
+  
   return (
-    <div className='App'>
+    <>
       <Header />
-      <Form setAlert={setAlert} setData={setData} setLoading={setLoading} />
-      <Content alert={alert} data={data} loading={loading} />
-    </div>
+      <Form setData={setData} setLoading={setLoading} data={data} />
+      <Content data={data} loading={loading} />
+    </>
   )
 }
 

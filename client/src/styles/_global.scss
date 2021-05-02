@@ -4,8 +4,21 @@
   padding: 0;
 }
 body {
-  background-color: $bg-dark;
+  background: 0;
 }
+html {
+  background: rgb(139, 140, 137);
+  background: linear-gradient(
+    0deg,
+    rgba(139, 140, 137, 1) -100%,
+    rgba(36, 36, 36, 1) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+}
+
 h3 {
   margin: 1rem 0;
   color: $light;
@@ -25,5 +38,6 @@ h3 {
   color: $gold;
   text-align: center;
   font-size: 3rem;
-  border: 0.5px solid $lightblue;
+  border: 0.5px solid $info;
+  text-shadow: 3px 0px 3px rgb(0, 0, 0);
 }

@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 
-const Form = ({ setData, setLoading }) => {
+const Form = ({ setData, setLoading, data }) => {
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
 
+  let searchRef = useRef(null)
+  useEffect(() => searchRef.focus(), [])
   const handleFormSubmit = async (e) => {
     const body = {
       name: name.toLowerCase(),
@@ -18,19 +20,15 @@ const Form = ({ setData, setLoading }) => {
       },
       body: JSON.stringify(body),
     })
-
+    console.log(response.status)
     if (response.status === 200) {
-      const json_response = await response.json()
+      const json = await response.json()
       setLoading(false)
-      setData(json_response)
-    }
-    if (response.status !== 200) {
-      console.log("error")
+      setData(json)
+    } else {
+      setLoading(false)
       setData(undefined)
-      setLoading(false)
     }
-    setPlatform("battle")
-    setName("")
     return e.target.reset()
   }
 
@@ -40,6 +38,7 @@ const Form = ({ setData, setLoading }) => {
       <form className='form' onSubmit={handleFormSubmit}>
         <input
           type='text'
+          ref={(el) => (searchRef = el)}
           onChange={(e) => {
             setName(e.currentTarget.value)
           }}
@@ -50,7 +49,6 @@ const Form = ({ setData, setLoading }) => {
           value={platform}
           onChange={(e) => {
             setPlatform(e.target.value)
-            console.log(platform)
           }}>
           <option value='battle'>Battle.net</option>
           <option value='psn'>Playstation</option>
@@ -59,8 +57,8 @@ const Form = ({ setData, setLoading }) => {
           <option value='acti'>Activision</option>
           <option value='uno'>Numerical Identifier</option>
         </select>
-        <button type='submit' className='button'>
-          <b>Search</b>
+        <button type='submit' id='search-button' className='button'>
+          Search
         </button>
       </form>
     </div>
