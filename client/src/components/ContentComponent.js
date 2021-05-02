@@ -10,15 +10,22 @@ const ContentComponent = ({ data }) => {
 
   useEffect(() => {
     const tl = gsap.timeline()
-    let main = contentRef.children[0].children
+    let main = contentRef.children[0]
+    let childrenrefs = contentRef.children[0].children[1].children
+    console.log(childrenrefs)
     tl.from(main, {
       x: -200,
       opacity: 0,
-      stagger: 0.25,
       duration: 0.5,
       ease: "power1.inOut",
-    }).from(main, { scale: 0.85, ease: "power1.inOut", duration: 1 })
-    console.log(main)
+    }).from(childrenrefs, {
+      scale: 0.89,
+      y: -55,
+      x: -55,
+      opacity: 0,
+      duration: 0.4,
+      stagger: 0.45,
+    })
   }, [])
 
   return (
