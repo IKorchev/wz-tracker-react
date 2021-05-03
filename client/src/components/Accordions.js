@@ -7,8 +7,8 @@ const Accordions = ({ data }) => {
   return data.map((arr) => {
     const stats = [arr.plunder, arr.battleRoyale]
     return (
-      <Container className='my-4 p-2 text-center'>
-        <h3 className='text-center'>{arr._id ? "Previous stats" : "Current stats"}</h3>
+      <Container className='my-4 p-2 text-center' id='stats-container'>
+        <h3 className='text-center mb-4'>{arr._id ? "Previous stats" : "Current stats"}</h3>
         {stats.map((gameMode) => (
           <Accordion className='bg-dark' key={gameMode.title}>
             <Card className='bg-info text-dark border-0 rounded-0'>

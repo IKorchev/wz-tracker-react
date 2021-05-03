@@ -8,6 +8,14 @@
   }
 }
 
+#stats-container {
+  background-color: $bg-dark;
+  border: 1px solid $info;
+  margin: 0 10px;
+  height: max-content;
+  box-shadow: 0px 0px 20px 3px lighten(black, 20);
+}
+
 .card-body {
   color: black;
   h5 {

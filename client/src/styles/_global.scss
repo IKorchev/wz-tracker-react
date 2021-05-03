@@ -8,12 +8,8 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 html {
-  background: rgb(8, 8, 8);
-  background: linear-gradient(
-    0deg,
-    rgba(139, 140, 137, 1) -100%,
-    rgba(36, 36, 36, 1) 100%
-  );
+  background: rgb(177, 177, 171);
+  background: linear-gradient(0deg, $bg-dark, 0%, rgba(79, 79, 78, 1) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
