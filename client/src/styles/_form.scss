@@ -10,52 +10,52 @@
     width: 100%;
   }
 }
+#form-elements {
+  margin-top: 1rem;
 
-.search {
-  font-size: 1.5rem;
-  height: 2.5rem;
-  outline: none;
-  padding: 1.3rem;
-  &:focus {
-    border: 2px solid $gold;
+  .search {
+    font-size: 1.5rem;
+    height: 2.5rem;
+    outline: none;
+    padding: 1.3rem;
+    &:focus {
+      border: 2px solid $gold;
+    }
+    @media (max-width: 992px) {
+      width: 50%;
+    }
+    @media (max-width: 660px) {
+      width: 95%;
+    }
   }
-  @media (max-width: 992px) {
-    width: 50%;
+
+  select {
+    text-align-last: center;
+    color: $darkBlue;
+    font-size: 1.5rem;
+    height: 2.9rem;
+    outline: none;
+    &:focus {
+      border-color: $gold;
+    }
+    @media (max-width: 992px) {
+      width: 30%;
+    }
+    @media (max-width: 660px) {
+      font-size: 1.3rem;
+      width: 95%;
+    }
   }
-  @media (max-width: 660px) {
-    width: 95%;
+  .button {
+    font-size: 1.2rem;
+    padding: 0 0.9rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    @media (max-width: 575px) {
+      width: 94.84%;
+      padding: 0.5rem;
+    }
+    @include buttonHoverAndFocus($blue, $info);
   }
 }
-
-select {
-  color: $darkBlue;
-  font-size: 1.5rem;
-  height: 2.9rem;
-  outline: none;
-  &:focus {
-    border-color: $gold;
-  }
-  @media (max-width: 992px) {
-    width: 30%;
-  }
-  @media (max-width: 660px) {
-    font-size: 1.3rem;
-    width: 95%;
-  }
-}
-.button {
-  font-size: 1.2rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  border-radius: 0px;
-  outline: none;
-  border: 1px solid $lightblue;
-  @media (max-width: 992px) {
-    width: 20%;
-  }
-  @media (max-width: 660px) {
-    width: 95%;
-  }
-  @include buttonHoverAndFocus;
-}
-

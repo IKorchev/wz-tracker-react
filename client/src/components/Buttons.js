@@ -14,7 +14,7 @@ const deleteTooltip = (pr) => (
 
 export const DeleteButton = () => (
   <OverlayTrigger placement='top' overlay={deleteTooltip}>
-    <Button className='mt-2 button w-100' onClick={deleteUser}>
+    <Button className='mt-2 button content-button w-100' onClick={deleteUser}>
       Delete stats
     </Button>
   </OverlayTrigger>
@@ -22,7 +22,7 @@ export const DeleteButton = () => (
 
 export const UpdateButton = () => (
   <OverlayTrigger placement='top' overlay={updateTooltip}>
-    <Button className='mt-2 button w-100' onClick={updateUser}>
+    <Button className='mt-2 button content-button  w-100' onClick={updateUser}>
       Update stats
     </Button>
   </OverlayTrigger>

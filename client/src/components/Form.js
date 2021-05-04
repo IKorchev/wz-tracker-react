@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import { Container } from "react-bootstrap"
 
 const Form = ({ setData, setLoading, data }) => {
   const [name, setName] = useState("")
@@ -33,35 +34,37 @@ const Form = ({ setData, setLoading, data }) => {
   }
 
   return (
-    <div className='container'>
+    <Container fluid className='text-center'>
       <h3 className='text-center'>Look for a player</h3>
       <form className='form' onSubmit={handleFormSubmit}>
-        <input
-          type='text'
-          ref={(el) => (searchRef = el)}
-          onChange={(e) => {
-            setName(e.currentTarget.value)
-          }}
-          className='search'
-          placeholder='Name (include #id)'
-        />
-        <select
-          value={platform}
-          onChange={(e) => {
-            setPlatform(e.target.value)
-          }}>
-          <option value='battle'>Battle.net</option>
-          <option value='psn'>Playstation</option>
-          <option value='xbl'>Xbox Live</option>
-          <option value='steam'>Steam</option>
-          <option value='acti'>Activision</option>
-          <option value='uno'>Numerical Identifier</option>
-        </select>
-        <button type='submit' id='search-button' className='button'>
-          Search
-        </button>
+        <Container className='d-sm-flex justify-content-center' id='form-elements'>
+          <input
+            type='text'
+            ref={(el) => (searchRef = el)}
+            onChange={(e) => {
+              setName(e.currentTarget.value)
+            }}
+            className='search'
+            placeholder='Name (include #id)'
+          />
+          <select
+            value={platform}
+            onChange={(e) => {
+              setPlatform(e.target.value)
+            }}>
+            <option value='battle'>Battle.net</option>
+            <option value='psn'>Playstation</option>
+            <option value='xbl'>Xbox Live</option>
+            <option value='steam'>Steam</option>
+            <option value='acti'>Activision</option>
+            <option value='uno'>Numerical Identifier</option>
+          </select>
+          <button type='submit' id='search-button' className='button'>
+            Search
+          </button>
+        </Container>
       </form>
-    </div>
+    </Container>
   )
 }
 
