@@ -1,12 +1,9 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useState } from "react"
 import { Container } from "react-bootstrap"
 
 const Form = ({ setData, setLoading, data }) => {
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
-
-  let searchRef = useRef(null)
-  useEffect(() => searchRef.focus(), [])
   const handleFormSubmit = async (e) => {
     const body = {
       name: name.toLowerCase(),
@@ -41,7 +38,6 @@ const Form = ({ setData, setLoading, data }) => {
           <label className='visually-hidden'>Player name</label>
           <input
             type='text'
-            ref={(el) => (searchRef = el)}
             onChange={(e) => {
               setName(e.currentTarget.value)
             }}

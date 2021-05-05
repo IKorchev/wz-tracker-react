@@ -8,41 +8,10 @@ body {
   font-family: "Montserrat", sans-serif;
   height: 100%;
 }
-html {
-  background: rgb(68, 68, 68);
-  background: linear-gradient(180deg, $bg-dark, 0%, rgb(58, 58, 58) 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center center;
-}
-
 h3 {
   margin: 1rem 0;
   color: $light;
 }
 select {
   text-align-last: center;
-}
-.container-column {
-  margin: 3rem auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.header {
-  display: inline-block;
-  margin: 2rem 10px;
-  padding: 1rem 2rem;
-  color: $gold;
-  text-align: center;
-  font-size: 3rem;
-  border: 0.5px solid $info;
-  @media (max-width: 575px) {
-    font-size: 2.5rem !important;
-    width: 100%;
-    display: flex;
-  }
 }

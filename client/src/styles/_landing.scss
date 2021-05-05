@@ -1,0 +1,78 @@
+#container-column {
+  background: linear-gradient(200deg, rgb(0, 0, 0), rgb(118, 118, 118)),
+    url(../images/Warzone.svg);
+  position: relative;
+  height: 1000px;
+  display: flex;
+  @media (max-width: 1200px) {
+    height: 800px;
+  }
+}
+
+#landing-header {
+  z-index: 4;
+  margin-top: 200px;
+  margin-left: 200px;
+  width: 800px;
+  font-family: "Montserrat";
+  h1 {
+    color: $gold;
+    font-size: 5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  p {
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  button {
+    margin-top: 2rem;
+    z-index: 3;
+    background: $blue;
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 1500px) {
+    height: 800px;
+    margin-left: auto;
+    text-align: center;
+  }
+  @media (max-width: 992px) {
+    height: 800px;
+    margin-left: auto;
+    text-align: center;
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    button {
+      width: 50%;
+    }
+  }
+}
+
+#warzone-svg {
+  z-index: 1;
+  width: 96%;
+  position: absolute;
+  bottom: 20%;
+  overflow-x: hidden;
+}
+
+#block {
+  z-index: 0;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  right: 10%;
+
+  @media (max-width: 1500px) {
+    right: 50%;
+    transform: translateY(-70%) translateX(50%);
+    width: 600px !important;
+    height: 500px;
+  }
+}
