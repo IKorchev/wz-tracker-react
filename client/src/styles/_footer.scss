@@ -1,17 +1,19 @@
 #footer {
+  background: $bg-dark;
+  margin: 200px 0 0 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  position: relative;
-  bottom: 0;
+  border-top: 1px solid $gold;
   #footer-signup {
     h5 {
       color: $light;
       margin: 20px 0;
     }
     input {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       outline: none;
+      width: 30%;
       padding: 0.3rem 0.4rem;
       border: 1px solid $bg-dark;
       @media (max-width: 992px) {
@@ -23,24 +25,67 @@
       justify-content: center;
     }
   }
-  ul {
+
+  #footer-list {
+    margin: 2% 0;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     list-style-type: none;
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
   }
 
   a {
     text-decoration: none;
+    @media (max-width: 992px) {
+      margin: 10px 0;
+    }
   }
   .button {
+    white-space: nowrap;
     padding: 0 1rem;
     outline: none !important;
     border-radius: 0;
     border: 1px solid $light;
     background-color: $bg-dark !important;
     color: $light;
-    @include buttonHoverAndFocus($light, $light);
+    @include buttonHoverAndFocus($light, $light, 0.6s);
+  }
+  #icons-container {
+    margin: auto;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    a {
+      margin: 0 20px;
+      padding: 5px 10px;
+    }
+    .bi-twitch {
+      color: purple !important;
+      &:hover {
+        color: darken(purple, 10) !important;
+      }
+    }
+    .bi-twitter {
+      color: rgb(27, 198, 255) !important;
+      &:hover {
+        color: darken(rgb(27, 198, 255), 10) !important;
+      }
+    }
+    .bi-facebook {
+      color: rgb(0, 87, 153) !important;
+      &:hover {
+        color: darken(rgb(0, 87, 153), 10) !important;
+      }
+    }
+    .bi-instagram {
+      color: $light !important;
+      &:hover {
+        color: darken($light, 10) !important;
+      }
+    }
   }
 }

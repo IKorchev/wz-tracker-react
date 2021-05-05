@@ -46,3 +46,7 @@
     width: 99% !important;
   }
 }
+.content-button {
+  border-radius: 0;
+  @include buttonHoverAndFocus($info, $blue, 0.1s);
+}

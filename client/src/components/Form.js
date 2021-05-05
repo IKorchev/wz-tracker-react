@@ -37,7 +37,8 @@ const Form = ({ setData, setLoading, data }) => {
     <Container fluid className='text-center'>
       <h3 className='text-center'>Look for a player</h3>
       <form className='form' onSubmit={handleFormSubmit}>
-        <Container className='d-sm-flex justify-content-center' id='form-elements'>
+        <Container className='d-sm-flex justify-content-center ' id='form-elements'>
+          <label className='visually-hidden'>Player name</label>
           <input
             type='text'
             ref={(el) => (searchRef = el)}
@@ -47,6 +48,7 @@ const Form = ({ setData, setLoading, data }) => {
             className='search'
             placeholder='Name (include #id)'
           />
+          <label className='visually-hidden'>Platform</label>
           <select
             value={platform}
             onChange={(e) => {

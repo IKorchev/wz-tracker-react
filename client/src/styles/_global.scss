@@ -6,10 +6,11 @@
 body {
   background: 0;
   font-family: "Montserrat", sans-serif;
+  height: 100%;
 }
 html {
-  background: rgb(177, 177, 171);
-  background: linear-gradient(0deg, $bg-dark, 0%, rgba(79, 79, 78, 1) 100%);
+  background: rgb(68, 68, 68);
+  background: linear-gradient(180deg, $bg-dark, 0%, rgb(58, 58, 58) 100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -44,9 +45,4 @@ select {
     width: 100%;
     display: flex;
   }
-}
-
-.content-button {
-  border-radius: 0;
-  @include buttonHoverAndFocus($info, $blue);
 }
