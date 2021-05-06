@@ -7,7 +7,13 @@
     width: 98%;
   }
 }
-
+#content-wrapper {
+  height: 80vh !important;
+  background: $bg-dark;
+  #content-container {
+    padding-top: 100px;
+  }
+}
 #stats-container {
   background-color: $bg-dark;
   border: 1px solid $info;

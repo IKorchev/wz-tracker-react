@@ -29,7 +29,7 @@ const ContentComponent = ({ data }) => {
   }, [])
 
   return (
-    <Container ref={(el) => (contentRef = el)} className='container-column'>
+    <Container ref={(el) => (contentRef = el)} >
       <Container id='main'>
         <PlayerInfo data={data} />
         <Container fluid className='d-lg-flex'>
