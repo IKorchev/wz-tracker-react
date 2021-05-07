@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
+  margin-bottom: 100px;
   @media (max-width: 660px) {
     flex-direction: column;
     width: 100%;
@@ -46,16 +46,21 @@
       width: 95%;
     }
   }
-}
-.button {
-  font-size: 1.2rem;
-  padding: 0 0.9rem;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  @media (max-width: 575px) {
-    width: 94.84%;
-    padding: 0.5rem;
+  button {
+    color: black !important;
+    background: $blue;
+    font-size: 1.2rem;
+    padding: 0 0.9rem;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    @media (max-width: 575px) {
+      width: 94.84%;
+      padding: 0.5rem;
+    }
+    &:hover {
+      color: white !important;
+    }
+    @include buttonHoverAndFocus($blue, $info, 0.6s);
   }
-  @include buttonHoverAndFocus($blue, $info, 0.6s);
 }

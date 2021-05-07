@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
 }
-body {
-  background: 0;
+
+#root {
+  background: $bg-dark;
   font-family: "Montserrat", sans-serif;
   height: 100%;
 }
+
 h3 {
   margin: 1rem 0;
   color: $light;

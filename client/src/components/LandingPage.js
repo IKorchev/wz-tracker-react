@@ -10,6 +10,22 @@ const Header = ({ myRef }) => {
   const handleButton = () => {
     myRef.current.scrollIntoView({ behavior: "smooth", alignToTop: true })
   }
+  const handleHover = (e) => {
+    gsap.to(e.target, {
+      x: "-1px",
+      y: "-1px",
+      boxShadow: "6px 6px 9px $darker-grey",
+      duration: 0.3,
+    })
+  }
+  const handleMouseLeave = (e) => {
+    gsap.to(e.target, {
+      x: "1px",
+      y: "1px",
+      boxShadow: "3px 3px 9px $darker-grey",
+      duration: 0.3,
+    })
+  }
   useEffect(() => {
     const tl = gsap.timeline()
     const headerItems = headerRef.children
@@ -17,15 +33,22 @@ const Header = ({ myRef }) => {
       x: 50,
       opacity: 0,
       duration: 0.5,
-      stagger: 0.3,
+      stagger: 0.2,
     })
   }, [])
+
   return (
     <Container fluid id='container-column'>
       <Container ref={(el) => (headerRef = el)} id='landing-header'>
         <h1>Track your Call of Duty stats</h1>
         <p>Save your stats and check how you did after your games! </p>
-        <button onClick={handleButton} className='button'>
+        <button
+          onClick={handleButton}
+          onMouseEnter={handleHover}
+          onFocus={handleHover}
+          onBlur={handleMouseLeave}
+          onMouseLeave={handleMouseLeave}
+          className='button'>
           See more
         </button>
       </Container>

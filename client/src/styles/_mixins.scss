@@ -1,6 +1,4 @@
 @mixin buttonHoverAndFocus($shadowcolor, $linecolor, $seconds) {
-  background-color: darken($blue, 10);
-  color: #fff !important;
   position: relative;
   &::after {
     content: "";
@@ -30,7 +28,6 @@
   }
   &:hover,
   &:focus {
-    background-color: $lightblue;
     &::before,
     &::after {
       transform: scaleX(1);

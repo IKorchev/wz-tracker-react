@@ -1,13 +1,12 @@
 import React, { useState, forwardRef, useRef } from "react"
 import { Container } from "react-bootstrap"
 
-
 const Form = ({ setData, setLoading, data }, ref) => {
   let h3Ref = useRef(null)
   let formRef = useRef(null)
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
-  
+
   const handleFormSubmit = async (e) => {
     const body = {
       name: name.toLowerCase(),

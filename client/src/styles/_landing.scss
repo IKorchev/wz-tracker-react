@@ -21,17 +21,29 @@
     font-size: 5rem;
     font-weight: bold;
     margin-bottom: 2rem;
+    text-shadow: 3px 3px 10px $darker-grey;
   }
   p {
     color: white;
     font-size: 2rem;
     font-weight: 700;
+    text-shadow: 3px 3px 10px $darker-grey;
   }
   button {
+    color: $dark-grey !important;
+    font-size: 1.2rem;
+    font-weight: bold;
     margin-top: 2rem;
     z-index: 3;
-    background: $blue;
+    background: lighten($blue, 10);
+    border: 1px solid darken($blue, 20);
     padding: 10px 20px;
+    box-shadow: 3px 3px 9px $darker-grey;
+    &:hover,
+    &:focus {
+      background: lighten($blue, 20);
+      box-shadow: 6px 6px 9px $darker-grey;
+    }
   }
 
   @media (max-width: 1500px) {

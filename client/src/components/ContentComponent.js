@@ -14,23 +14,23 @@ const ContentComponent = ({ data }) => {
     let childrenrefs = contentRef.children[0].children[1].children
     console.log(childrenrefs)
     tl.from(main, {
-      x: -200,
+      x: -100,
       opacity: 0,
-      duration: 0.5,
+      duration: 0.3,
       ease: "power1.inOut",
     }).from(childrenrefs, {
       scale: 0.89,
       y: -55,
       x: -55,
       opacity: 0,
-      duration: 0.4,
-      stagger: 0.45,
+      duration: 0.3,
+      stagger: 0.1,
     })
   }, [])
 
   return (
-    <Container ref={(el) => (contentRef = el)} >
-      <Container id='main'>
+    <Container id='main-wrapper' ref={(el) => (contentRef = el)}>
+      <Container id="main-content">
         <PlayerInfo data={data} />
         <Container fluid className='d-lg-flex'>
           <Accordions data={data} />
