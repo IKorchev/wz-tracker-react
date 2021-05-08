@@ -1,5 +1,5 @@
 require("dotenv").config()
-const db = require("./module_exports/mongo") // connect to db
+require("./module_exports/mongo") // connect to db
 const API = require("call-of-duty-api")() // COD API wrapper
 const { urlencoded } = require("body-parser")
 const express = require("express")
