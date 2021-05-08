@@ -15,8 +15,8 @@ function App() {
   return (
     <>
       <Landing myRef={formRef} />
-      <Cards />
-      <Form ref={formRef} setData={setData} setLoading={setLoading} data={data} />
+      <Cards ref={formRef} />
+      <Form setData={setData} setLoading={setLoading} data={data} />
       <Content data={data} loading={loading} />
       <Footer />
     </>

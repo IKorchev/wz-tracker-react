@@ -36,6 +36,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 2rem;
+    border-radius: 30px;
     z-index: 3;
     background: lighten($blue, 10);
     border: 1px solid darken($blue, 20);
@@ -81,7 +82,6 @@
   position: absolute;
   top: 0;
   right: 10%;
-
   @media (max-width: 1500px) {
     right: 50%;
     width: 100%;

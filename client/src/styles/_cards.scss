@@ -1,0 +1,59 @@
+#cards-page {
+  cursor: default;
+  border-top: 1px solid $gold;
+  background-image: url(../images/CALLOFDUTY.svg),
+    linear-gradient(150deg, rgb(100, 100, 100), rgb(44, 44, 44));
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: max-content;
+  padding: 0 0 100px 0;
+  h1 {
+    font-weight: bolder !important;
+    text-shadow: 5px 5px 10px rgb(28, 28, 28);
+  }
+  img {
+    height: 35px;
+    width: 35px;
+    margin-right: 8px;
+  }
+}
+.cards-wrapper {
+  margin: 0 auto;
+  display: grid;
+  gap: 50px 0;
+  grid-template-columns: repeat(3, 300px);
+  place-items: center;
+  justify-content: center;
+  align-self: center;
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 300px);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 300px);
+  }
+
+  .card {
+    font-family: monospace;
+    background: linear-gradient(
+      320deg,
+      rgba(255, 240, 183, 0.6) 0%,
+      rgba(85, 205, 255, 0.9) 100%
+    );
+    width: 250px;
+    height: 155px;
+    text-align: center;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(60, 60, 60);
+    border-radius: 33px;
+
+    box-shadow: 4px 5px 8px rgba(0, 0, 0, 0.45);
+    h2 {
+      font-weight: bolder !important;
+      font-size: 30px !important;
+    }
+  }
+}
