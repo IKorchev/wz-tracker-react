@@ -8,12 +8,6 @@
   background: $bg-dark;
   font-family: "Montserrat", sans-serif;
   height: 100%;
+  overflow-x: hidden;
 }
 
-h3 {
-  margin: 1rem 0;
-  color: $light;
-}
-select {
-  text-align-last: center;
-}

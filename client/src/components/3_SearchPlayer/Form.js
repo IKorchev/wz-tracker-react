@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react"
 import { Container } from "react-bootstrap"
 
 const Form = ({ setData, setLoading, data }) => {
-  let h3Ref = useRef(null)
   let formRef = useRef(null)
   const [name, setName] = useState("")
   const [platform, setPlatform] = useState("battle")
@@ -35,9 +34,9 @@ const Form = ({ setData, setLoading, data }) => {
 
   return (
     <Container fluid className='text-center' id='content-wrapper'>
+      <h1 className='display-3 my-5'>Player Lookup</h1>
       <Container id='content-container'>
-        <h3 ref={h3Ref}>Look for a player</h3>
-        <form className='form' onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit}>
           <Container
             ref={formRef}
             className='d-sm-flex justify-content-center'

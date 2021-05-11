@@ -29,6 +29,7 @@ const Landing = ({ myRef }) => {
   useEffect(() => {
     const tl = gsap.timeline()
     const headerItems = headerRef.children
+    
     tl.from(blockRef, { y: "-101%", duration: 0.7, ease: "circ.out" }).from(headerItems, {
       x: 50,
       opacity: 0,
@@ -38,7 +39,7 @@ const Landing = ({ myRef }) => {
   }, [])
 
   return (
-    <Container fluid id='container-column'>
+    <Container fluid id='landing-page-wrapper'>
       <Container ref={(el) => (headerRef = el)} id='landing-header'>
         <h1>Track your Call of Duty stats</h1>
         <p>Save your stats and check how you did after your games! </p>

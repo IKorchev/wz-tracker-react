@@ -6,6 +6,7 @@
   border-top: 1px solid $gold;
   #footer-signup {
     h5 {
+      text-align: center;
       color: $light;
       margin: 20px 0;
     }
@@ -51,7 +52,7 @@
     border: 1px solid $light;
     background-color: $bg-dark !important;
     color: $light;
-    @include buttonHoverAndFocus($light, $light, 0.6s);
+    @include buttonHoverAndFocus($light, $light, 0.6s, 100%, 0);
   }
   #icons-container {
     margin: auto;

@@ -13,13 +13,13 @@ function App() {
   const formRef = useRef(null)
 
   return (
-    <>
+    <div>
       <Landing myRef={formRef} />
       <Cards ref={formRef} />
       <Form setData={setData} setLoading={setLoading} data={data} />
       <Content data={data} loading={loading} />
       <Footer />
-    </>
+    </div>
   )
 }
 

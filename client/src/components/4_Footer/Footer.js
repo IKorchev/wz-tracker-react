@@ -51,7 +51,7 @@ const Footer = () => {
           <i className='bi bi-instagram'></i>
         </a>
       </Container>
-      <Container className='px-5 text-center text-muted my-3 small '>
+      <Container className='text-center text-muted my-3 small '>
         <p className='px-5'>
           &copy; All other trademarks and trade names are property of their respective
           owners.

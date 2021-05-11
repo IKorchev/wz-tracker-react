@@ -1,23 +1,24 @@
-#container-column {
+#landing-page-wrapper {
   display: flex;
   flex-direction: row;
   background: linear-gradient(200deg, rgb(0, 0, 0), rgb(118, 118, 118)),
     url(../images/Warzone.svg);
+  height: max-content;
   position: relative;
-  height: 100vh;
+  padding-bottom: 300px;
   display: flex;
-  @media (max-width: 1200px) {
-    height: 800px;
+  @media (max-width: 992px) {
+    padding-bottom: 60px;
   }
 }
 
 #landing-header {
   z-index: 4;
   margin-top: 200px;
-  margin-left: 200px;
-  width: 800px;
+  margin-left: 15%;
+  width: 40%;
+  height: max-content;
   font-family: "Montserrat";
-  overflow-x: hidden;
   h1 {
     color: $gold;
     font-size: 5rem;
@@ -54,7 +55,9 @@
     text-align: center;
   }
   @media (max-width: 992px) {
+    width: 95%;
     margin-left: auto;
+    margin-top: 300px;
     text-align: center;
     h1 {
       font-size: 2rem;
@@ -81,11 +84,17 @@
   height: 800px;
   position: absolute;
   top: 0;
-  right: 10%;
+  right: 15%;
   @media (max-width: 1500px) {
     right: 50%;
     width: 100%;
     transform: translateY(-70%) translateX(50%);
     height: 500px;
+  }
+  @media (max-width: 992px) {
+    right: 50%;
+    width: 70%;
+    transform: translateY(-55%) translateX(50%);
+    height: 1000px;
   }
 }

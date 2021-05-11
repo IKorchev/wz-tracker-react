@@ -13,12 +13,12 @@ const Accordions = ({ data }) => {
         </h3>
         {stats.map((gameMode) => (
           <Accordion key={gameMode.title}>
-            <Card className='text-dark border-0 rounded-0'>
+            <Card className='border-0 rounded-0'>
               <Accordion.Toggle id='toggler' eventKey='0'>
                 <h5>{gameMode.title}</h5>
               </Accordion.Toggle>
               <Accordion.Collapse eventKey='0'>
-                <Card.Body className='d-flex flex-column justify-content-center align-items-center'>
+                <Card.Body >
                   <h5 className='my-2'>Wins: {gameMode.wins}</h5>
                   <h5 className='my-2'>Kills: {gameMode.kills}</h5>
                   <h5 className='my-2'>Deaths: {gameMode.deaths}</h5>
