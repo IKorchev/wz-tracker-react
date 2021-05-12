@@ -1,23 +1,20 @@
 #landing-page-wrapper {
-  display: flex;
-  flex-direction: row;
   background: linear-gradient(200deg, rgb(0, 0, 0), rgb(118, 118, 118)),
     url(../images/Warzone.svg);
   height: max-content;
   position: relative;
-  padding-bottom: 300px;
   display: flex;
-  @media (max-width: 992px) {
-    padding-bottom: 60px;
-  }
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 100px;
 }
 
 #landing-header {
   z-index: 4;
-  margin-top: 200px;
+  margin-top: 300px;
   margin-left: 15%;
   width: 40%;
-  height: max-content;
   font-family: "Montserrat";
   h1 {
     color: $gold;
@@ -33,6 +30,7 @@
     text-shadow: 3px 3px 10px $darker-grey;
   }
   button {
+    width: 160px !important;
     color: $dark-grey !important;
     font-size: 1.2rem;
     font-weight: bold;
@@ -49,21 +47,18 @@
       box-shadow: 6px 6px 9px $darker-grey;
     }
   }
-
-  @media (max-width: 1500px) {
-    margin-left: auto;
-    text-align: center;
+  @media (max-width: 1200px) {
+    width: 75%;
   }
   @media (max-width: 992px) {
     width: 95%;
-    margin-left: auto;
-    margin-top: 300px;
+    margin: 300px auto 100px auto;
     text-align: center;
     h1 {
-      font-size: 2rem;
+      font-size: 3rem;
     }
     p {
-      font-size: 1rem;
+      font-size: 1.5rem;
     }
     button {
       width: 50%;
@@ -82,19 +77,13 @@
 #block {
   z-index: 0;
   height: 800px;
+  width: 100%;
   position: absolute;
   top: 0;
-  right: 15%;
-  @media (max-width: 1500px) {
-    right: 50%;
-    width: 100%;
-    transform: translateY(-70%) translateX(50%);
-    height: 500px;
-  }
-  @media (max-width: 992px) {
-    right: 50%;
-    width: 70%;
-    transform: translateY(-55%) translateX(50%);
-    height: 1000px;
+  left: 25vw;
+  @media (max-width: 1200px) {
+    height: 700px;
+    top: -450px;
+    left: 0;
   }
 }

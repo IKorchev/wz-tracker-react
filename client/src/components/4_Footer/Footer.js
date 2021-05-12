@@ -6,9 +6,9 @@ const Footer = () => {
       <Container
         id='footer-signup'
         className='d-flex flex-column align-items-center my-4'>
-        <h5 clasName='text-center'>Sign up for weekly stats and more</h5>
+        <h5 className='text-center'>Sign up for weekly stats and more</h5>
         <Container>
-          <label for='email-input' className='visually-hidden'>
+          <label htmlFor='email-input' className='visually-hidden'>
             Email
           </label>
           <input type='email' placeholder='Email' id='email-input' />
